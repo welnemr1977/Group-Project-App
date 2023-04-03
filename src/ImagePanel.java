@@ -1,17 +1,10 @@
 
 
-import static com.sun.java.accessibility.util.AWTEventMonitor.addMouseListener;
-import static com.sun.java.accessibility.util.AWTEventMonitor.addMouseMotionListener;
-import java.awt.Color;
-//import static NewClass.startX;
-//import static NewClass.startY;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
-import java.awt.RenderingHints;
 import java.awt.event.MouseAdapter;
-
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionAdapter;
@@ -19,7 +12,6 @@ import java.awt.event.MouseMotionListener;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 import java.awt.image.BufferedImage;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /*
@@ -121,7 +113,7 @@ public abstract class ImagePanel extends JPanel implements MouseWheelListener,  
         g2d.drawImage(originalImage, (int)(offset.x * zoom), (int)(offset.y * zoom), (int)(originalImage.getWidth() * zoom), (int)(originalImage.getHeight() * zoom), null);
         ScalePanel scalepanel = new ScalePanel(originalImage);
         scalepanel.drawAxes(g2d);
-//        drawAxes(g2d);
+
     }
 }
 

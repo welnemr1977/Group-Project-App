@@ -1,13 +1,9 @@
 
-import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import Classes.JobManager;
-import static Classes.JobManager.jobStatus;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
 import javax.swing.JFileChooser;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
@@ -405,50 +401,23 @@ public class CreateNewProject extends javax.swing.JDialog {
         //estimate_chr/:input_file/:output_file
 
         try {
-//            // Submit a job and get the job ID
-//            List<String> jobInfo = jobManagerChr.submitJob(ServerConfigurationInputs.serverURL + "/estimate_chr/" + queryfilename + "/ChrEst.csv");
-//            jobIdChr = jobInfo.get(0);
-//            submissionDateChr = jobInfo.get(1);
-//            System.out.println("Job submitted with ID: " + jobIdChr);
-//            JOptionPane.showMessageDialog(null,
-//                    "Estimation in process. Please wait 1 minute.",
-//                    "Chromosome Estimation",
-//                    JOptionPane.INFORMATION_MESSAGE);
-//
-//            TimeUnit.MINUTES.sleep(1);
-//            jobStatus = jobManagerChr.getJobStatus(jobIdChr);
-//            System.out.println(jobStatus);
-//            
+            
             HashMap list = null;
 
             list = jobManagerChr.getJobOutputCSV(ServerConfigurationInputs.serverURL + "/download/ChrEst.csv");
             System.out.println("\nList:\n" + list);
-//            } else {
-//                TimeUnit.SECONDS.sleep(30);
-//                jobStatus = jobManagerChr.getJobStatus(jobIdChr);
-//                System.out.println(jobStatus);
-//                list = jobManagerChr.getJobOutputCSV(ServerConfigurationInputs.serverURL + "/download/ChrEst.csv");
-//            }
-
-//            
+     
             ArrayList<String> seqidlist = (ArrayList<String>) list.get(1);
-            //System.out.println("List: " + seqidlist);
+            System.out.println("List: " + seqidlist);
             String[] estseqid = new String[seqidlist.size()];
             seqidlist.toArray(estseqid);
 
-//            for (int i = 0; i < estseqid.length; i++) {
-//                jTextArea1.append(estseqid[i].replace("\"", ""));
-//                jTextArea1.append("\n");
-//            }
             ArrayList<String> seqlenlist = (ArrayList<String>) list.get(2);
-            //System.out.println("List: " + seqlenlist);
+            System.out.println("List: " + seqlenlist);
             String[] estseqlen = new String[seqlenlist.size()];
             seqlenlist.toArray(estseqlen);
 
-//            for (int i = 0; i < estseqid.length; i++) {
-//                jTextArea2.append(estseqlen[i].replace("\"", ""));
-//                jTextArea2.append("\n");
-//            }
+
             numofchromosomes = estseqid.length;
             jTextField1.setText(Integer.toString(numofchromosomes));
 
